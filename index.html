@@ -14,7 +14,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #fefefe;
+  background-color: #FFFDE7; /* soft cream background */
   scroll-behavior: smooth;
 }
 
@@ -26,15 +26,18 @@ body {
 
 .bubble-inline {
   display: inline-block;
-  background-color: #fefefe;
   border-radius: 15px;
   padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   margin: 10px auto;
   transition: transform 0.2s;
 }
 
 .bubble-inline:hover { transform: translateY(-2px); }
+
+/* Header Title & LO colors */
+#Title.bubble-inline { background-color: #FFECB3; } /* yellow */
+#LearningObjective.bubble-inline { background-color: #B3E5FC; } /* light blue */
 
 #Title { font-size: 28px; margin: 0; }
 #LearningObjective { font-size: 16px; margin: 10px 0 20px 0; }
@@ -46,8 +49,8 @@ body {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgba(255,255,255,0.9);
-  border-radius: 50px;
+  background-color: #FFE082; /* soft orange */
+  border-radius: 30px;
   padding: 10px 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   position: sticky;
@@ -62,12 +65,12 @@ body {
   font-weight: bold;
   padding: 8px 15px;
   border-radius: 30px;
-  border: 2px solid #333;
+  border: 2px solid #FFB74D;
   transition: 0.3s;
 }
 
 .anchor-nav a:hover {
-  background-color: #dfefff;
+  background-color: #FFD54F;
   transform: translateY(-2px);
 }
 
@@ -77,6 +80,8 @@ body {
   padding: 0 5%;
   margin: 0 0 40px 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .bubble {
@@ -89,7 +94,7 @@ body {
 
 .bubble:hover { transform: translateY(-2px); }
 
-/* ---------- Section Colors (Fun for 4th grade) ---------- */
+/* ---------- Section Colors ---------- */
 #A .bubble { background-color: #FFF9C4; } /* yellow */
 #B .bubble { background-color: #C8E6C9; } /* green */
 #C .bubble { background-color: #FFE0B2; } /* orange */
@@ -98,6 +103,7 @@ body {
 
 /* ---------- Lists ---------- */
 ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
+
 .side-image img {
   max-width: 250px;
   width: 100%;
@@ -105,6 +111,7 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: 0.2s;
 }
+
 .side-image img:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
@@ -118,6 +125,7 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   overflow: hidden;
   border-radius: 10px;
 }
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -141,6 +149,7 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   transition: transform 0.3s;
 }
+
 .what-it-took-banner:hover { transform: translateY(-3px); }
 
 /* ---------- Overlay ---------- */
@@ -157,6 +166,7 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   align-items: center;
   z-index: 2000;
 }
+
 .overlay-content {
   background: white;
   padding: 40px;
@@ -165,6 +175,7 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   width: 90%;
   text-align: center;
 }
+
 .overlay button {
   margin-top: 20px;
   padding: 10px 20px;
