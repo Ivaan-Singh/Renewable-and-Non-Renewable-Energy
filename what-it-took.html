@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What It Took</title>
+
+<link rel="stylesheet" href="styles.css">
+<script defer src="script.js"></script>
+</head>
+
+<body onload="initStats()">
+
+<div class="header-container">
+  <div class="title-bubble">What It Took</div>
+</div>
+
+<div class="bubble-container">
+  <div class="stat-bubble">
+    <div>Total Lines</div>
+    <div id="lineCount">0</div>
+  </div>
+
+  <div class="stat-bubble">
+    <div>Total Project Size</div>
+    <div id="fileSize">0 KB</div>
+  </div>
+</div>
+
+<a href="index.html" class="what-it-took-banner">← Back</a>
+
+<script>
+async function initStats() {
+
+  // create floating background bubbles
+  if (typeof createFloatingBubbles === "function") {
+    createFloatingBubbles();
+  }
+
+  const files = [
+    "index.html",
+    "what-it-took.html",
+    "styles.css",
+    "script.js"
+  ];
+
+  let totalLines = 0;
+  let totalBytes = 0;
+
+  for (const file of files) {
+    try {
+      const response = await fetch(file);
+
+      if (!response.ok) {
+        console.warn("Could not load:", file);
+        continue;
+      }
+
+      const text = await response.text();
+
+      totalLines += text.split("\n").length;
+      totalBytes += new Blob([text]).size;
+
+    } catch (error) {
+      console.warn("Error loading:", file);
+    }
+  }
+
+  const sizeKB = totalBytes / 1024;
+
+  // animate numbers
+  animateNumber(
+    document.getElementById("lineCount"),
+    totalLines,
+    2000
+  );
+
+  animateNumber(
+    document.getElementById("fileSize"),
+    sizeKB,
+    2000,
+    true,
+    " KB"
+  );
+}
+</script>
+</body>
+</html>
