@@ -301,9 +301,9 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 </div>
 
 <!-- What It Took -->
-<div class="what-it-took-banner" onclick="openPanel()">
+<a href="what-it-took.html" class="what-it-took-banner">
   What It Took →
-</div>
+</a>
 
 <div id="whatPanel" class="overlay">
   <div class="overlay-content">
@@ -323,50 +323,6 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 </div>
 
 <script>
-const slowStart = 0.6;
-const easingPower = 5;
-
-function openPanel() {
-  const panel = document.getElementById("whatPanel");
-  panel.style.display = "flex";
-
-  // Reset text
-  document.getElementById("lineCount").textContent = "";
-  document.getElementById("fileSize").textContent = "";
-
-  // Reset ALL reveal buttons properly
-  const buttons = panel.querySelectorAll("button");
-  buttons.forEach(btn => {
-    if (btn.textContent.includes("Reveal")) {
-      btn.disabled = false;
-    }
-  });
-}
-
-function closePanel() {
-  document.getElementById("whatPanel").style.display = "none";
-}
-
-function revealStat(statId, button) {
-  button.disabled = true;
-  const html = document.documentElement.outerHTML;
-  let target, isFloat = false;
-
-  if(statId === "lineCount") {
-    target = html.split("\n").length;
-  } else {
-    const bytes = new Blob([html]).size;
-    target = parseFloat((bytes/1024).toFixed(2));
-    isFloat = true;
-  }
-
-  animateNumber(statId, target, 2500, isFloat);
-}
-
-function animateNumber(id, target, duration, isFloat) {
-  const el = document.getElementById(id);
-  const start = performance.now();
-
   function update(time) {
     let progress = Math.min((time-start)/duration, 1);
     if(progress > slowStart) {
