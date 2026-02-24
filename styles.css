@@ -6,6 +6,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.stat-bubble button:hover {
+  transform: translateY(-2px);
+}
+
 /* ----------- Header ----------- */
 .header-container {
   text-align: center;
@@ -74,6 +78,20 @@ body {
   font-weight: bold;
   position: relative;
   z-index: 2;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(135deg,#FFD54F,#FFB74D);
+  transition: 0.2s;
+}
+
+.red-stat {
+  color: #e53935;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 /* ----------- Floating Background Bubbles ----------- */
