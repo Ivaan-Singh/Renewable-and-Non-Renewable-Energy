@@ -46,12 +46,88 @@
 <a href="index.html" class="what-it-took-banner">← Back</a>
 
 <script>
+let totalLines = 0;
+
 async function initStats() {
 
-  // create floating background bubbles
   if (typeof createFloatingBubbles === "function") {
     createFloatingBubbles();
   }
+
+  const files = [
+    "index.html",
+    "what-it-took.html",
+    "styles.css",
+    "script.js"
+  ];
+
+  for (const file of files) {
+    try {
+      const response = await fetch(file);
+      if (!response.ok) continue;
+
+      const text = await response.text();
+      totalLines += text.split("\n").length;
+
+    } catch (error) {
+      console.warn("Error loading:", file);
+    }
+  }
+}
+
+/* -------- Reveal Functions -------- */
+
+function revealLines() {
+  animateSlowCount(
+    document.getElementById("lineCount"),
+    totalLines,
+    2000
+  );
+}
+
+function revealLanguages() {
+  const el = document.getElementById("languages");
+  el.textContent = "HTML";
+
+  setTimeout(() => {
+    el.textContent += ", CSS";
+  }, 600);
+
+  setTimeout(() => {
+    el.textContent += ", JS";
+  }, 1200);
+}
+
+function revealChatGPT() {
+  document.getElementById("chatgpt").textContent =
+  'ChatGPT (it\'s not cheating — it is called "Vibe Coding", and it\'s a skill!)';
+}
+
+/* -------- Fast → Slow Count Animation -------- */
+
+function animateSlowCount(element, target, duration) {
+
+  let start = 0;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+
+    // easeOut effect (fast then slow)
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    const value = Math.floor(eased * target);
+
+    element.textContent = value;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
+}
 
   const files = [
     "index.html",
@@ -100,5 +176,6 @@ async function initStats() {
   );
 }
 </script>
+  
 </body>
 </html>
