@@ -15,11 +15,27 @@
   <div class="title-bubble">What It Took</div>
 </div>
 
-<div class="bubble-container">
+<<div class="bubble-container">
+
   <div class="stat-bubble">
-    <div>Total Lines</div>
-    <div id="lineCount">0</div>
+    <div>Total Lines of Code:</div>
+    <button onclick="revealLines(this)">Reveal</button>
+    <div id="lineCount" class="red-stat"></div>
   </div>
+
+  <div class="stat-bubble">
+    <div>Coding Languages Used:</div>
+    <button onclick="revealLanguages(this)">Reveal</button>
+    <div id="languages" class="red-stat"></div>
+  </div>
+
+  <div class="stat-bubble">
+    <div>A little help from:</div>
+    <button onclick="revealChatGPT(this)">Reveal</button>
+    <div id="chatgpt" class="red-stat"></div>
+  </div>
+
+</div>
 
   <div class="stat-bubble">
     <div>Total Project Size</div>
