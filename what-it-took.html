@@ -35,22 +35,47 @@
 }
 @keyframes floatUp { from{ transform: translateY(0); } to{ transform: translateY(-120vh); } }
 
+/* -------- Title bubble -------- */
+.title-bubble {
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: #FFECB3;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  margin-top: 40px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.title-bubble:hover {
+  transform: translateY(-2px);
+}
+
 /* -------- Stat Bubbles -------- */
 .stat-bubble {
   width: 230px;
   min-height: 150px;
   border-radius: 20px;
-  background: linear-gradient(135deg,#FFD54F,#FFB74D);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 14px;
+  padding: 15px;
   margin: 10px;
   font-weight: bold;
   text-align: center;
+  transition: transform 0.2s;
 }
+.stat-bubble:hover {
+  transform: translateY(-2px);
+}
+
+/* Individual bubble colors */
+.stat-bubble:nth-child(1) { background-color: #FFF9C4; }  /* Yellow */
+.stat-bubble:nth-child(2) { background-color: #C8E6C9; }  /* Green */
+.stat-bubble:nth-child(3) { background-color: #E1BEE7; }  /* Purple */
 
 /* -------- Buttons inside bubbles -------- */
 .stat-bubble button {
