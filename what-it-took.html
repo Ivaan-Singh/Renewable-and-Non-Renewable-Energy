@@ -72,7 +72,21 @@
   transform: translateY(-2px);
 }
 
-/* Individual bubble colors */
+.stat-bubble ul {
+  margin-top: 8px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+  color: #E53935;            /* red labels */
+}
+
+.stat-bubble ul li a {
+  color: #1565C0;            /* blue links */
+  text-decoration: underline;
+  font-weight: 500;
+}
+/* Individual bubble colors (like sections A–E style) */
 .stat-bubble:nth-child(1) { background-color: #FFF9C4; }  /* Yellow */
 .stat-bubble:nth-child(2) { background-color: #C8E6C9; }  /* Green */
 .stat-bubble:nth-child(3) { background-color: #E1BEE7; }  /* Purple */
@@ -235,46 +249,42 @@ function revealTools(btn){
   const el = document.getElementById("chatgpt");
 
   const tools = [
-    {
-      label: "Code Writing Tool - ",
-      name: "One Compiler",
-      link: "https://onecompiler.com"
-    },
-    {
-      label: "Software Compiler - ",
-      name: "GitHub",
-      link: "https://github.com"
-    },
-    {
-      label: "Vibe Coding Tool - ",
-      name: "ChatGPT",
-      link: "https://openai.com/chatgpt"
-    }
+    { name: "One Compiler", link: "https://onecompiler.com", label: "Code Writing Tool" },
+    { name: "GitHub", link: "https://github.com", label: "Software Compiler" },
+    { name: "ChatGPT", link: "https://openai.com/chatgpt", label: "Vibe Coding Tool" }
   ];
 
-  el.innerHTML = "";
+  // Create a UL element
+  const ul = document.createElement("ul");
+  ul.style.marginTop = "10px";
+  ul.style.listStyle = "disc";
+  ul.style.paddingLeft = "20px";
+  ul.style.color = "#E53935"; // keep red text for tool names
+
+  el.innerHTML = ""; // clear previous
   el.classList.add("visible");
 
   tools.forEach((tool, index) => {
-    const line = document.createElement("div");
-    line.style.opacity = "0";
-    line.style.transition = "opacity 0.8s ease";
-    line.style.marginTop = "8px";
-
-    line.innerHTML = `
-      ${tool.label}
-      <a href="${tool.link}" target="_blank" 
-         style="color:#1565C0; text-decoration:underline; font-weight:500;">
+    const li = document.createElement("li");
+    li.style.opacity = "0";
+    li.style.transition = "opacity 0.6s ease";
+    
+    // Set text with clickable link for the tool name
+    li.innerHTML = `
+      ${tool.label} - 
+      <a href="${tool.link}" target="_blank" style="color:#1565C0; text-decoration:underline;">
         ${tool.name}
       </a>
     `;
+    ul.appendChild(li);
 
-    el.appendChild(line);
-
+    // Stagger fade-in
     setTimeout(() => {
-      line.style.opacity = "1";
-    }, index * 800);
+      li.style.opacity = "1";
+    }, index * 700);
   });
+
+  el.appendChild(ul);
 }
 
 /* -------- Animated Count Function -------- */
