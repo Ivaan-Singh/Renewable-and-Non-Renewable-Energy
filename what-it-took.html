@@ -183,12 +183,30 @@ function createFloatingBubbles(){
 /* -------- Automated Stats -------- */
 let totalLines = 0;
 
-function initStats() {
+async function initStats() {
   createFloatingBubbles();
-  
-  // Counts total lines of current HTML page
-  const source = document.documentElement.outerHTML;
-  totalLines = source.split(/\r\n|\r|\n/).length;
+
+  const files = [
+    "index.html",
+    "what-it-took.html",
+    "styles.css",
+    "main.js",
+    "stats.js"
+  ];
+
+  totalLines = 0;
+
+  for (const file of files) {
+    try {
+      const response = await fetch(file);
+      if (!response.ok) continue;
+
+      const text = await response.text();
+      totalLines += text.split(/\r\n|\r|\n/).length;
+    } catch (err) {
+      console.warn("Could not load:", file);
+    }
+  }
 }
 
 /* -------- Reveal Functions for Buttons -------- */
