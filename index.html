@@ -125,6 +125,20 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 }
 .what-it-took-banner:hover { transform: translateY(-3px); }
 
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-link-style:visited,
+.no-link-style:active {
+  color: inherit;
+}
+
+.what-it-took-banner {
+  cursor: pointer;
+}
+
 /* -------- Floating Background Bubbles -------- */
 .floating-bubble {
   position: relative;
@@ -160,12 +174,12 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 <!-- ---------------- ANCHOR NAVIGATION ---------------- -->
 <div class="anchor-nav-container">
   <div class="anchor-nav">
-    <a href="#A">A) Definitions</a>
-    <a href="#B">B) Renewable Energy</a>
-    <a href="#C">C) Non-Renewable Energy</a>
-    <a href="#D">D) Credits</a>
-    <a href="#E">E) Video</a>
-    <a href="what-it-took.html">F) What It Took</a>
+    <a href="#A">A. Definitions</a>
+    <a href="#B">B. Renewable Energy</a>
+    <a href="#C">C. Non-Renewable Energy</a>
+    <a href="#D">D. Video</a>
+    <a href="#E">E. Credits</a>
+    <a href="what-it-took.html">F. What It Took</a>
   </div>
 </div>
 
@@ -226,21 +240,10 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   </div>
 </div>
 
-<!-- Section D: Credits -->
+<!-- Section D: Educational Video -->
 <div class="content-container" id="D">
   <div class="lists bubble">
-    <ol type="A" start="4"><li><h3>Credits</h3></li></ol>
-    <ul>
-      <li><a href="https://www.priyamstudycentre.com/wp-content/uploads/2020/11/renewable-energy-sources.jpg" target="_blank">Renewable Energy Image Source</a></li>
-      <li><a href="https://polarpedia.eu/wp-content/uploads/2019/05/Nonrenewableenergy.jpg" target="_blank">Non-Renewable Energy Image Source</a></li>
-    </ul>
-  </div>
-</div>
-
-<!-- Section E: Educational Video -->
-<div class="content-container" id="E">
-  <div class="lists bubble">
-    <ol type="A" start="5"><li><h3>Educational Video</h3></li></ol>
+    <ol type="A" start="4"><li><h3>Educational Video</h3></li></ol>
     <p>Watch this video to better understand renewable and non-renewable energy.</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/ViXtT8c4z-c" allowfullscreen></iframe>
@@ -248,8 +251,21 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
   </div>
 </div>
 
+<!-- Section E: Credits -->
+<div class="content-container" id="E">
+  <div class="lists bubble">
+    <ol type="A" start="5"><li><h3>Credits</h3></li></ol>
+    <ul>
+      <li><a href="https://www.priyamstudycentre.com/wp-content/uploads/2020/11/renewable-energy-sources.jpg" target="_blank">Renewable Energy Image Source</a></li>
+      <li><a href="https://polarpedia.eu/wp-content/uploads/2019/05/Nonrenewableenergy.jpg" target="_blank">Non-Renewable Energy Image Source</a></li>
+    </ul>
+  </div>
+</div>
+
 <!-- ---------------- WHAT IT TOOK BANNER ---------------- -->
-<a href="what-it-took.html" class="what-it-took-banner">What It Took →</a>
+<<a href="what-it-took.html" class="what-it-took-banner no-link-style">
+  What It Took →
+</a>
 
 <!-- ---------------- FLOATING BUBBLES SCRIPT ---------------- -->
 <script>
