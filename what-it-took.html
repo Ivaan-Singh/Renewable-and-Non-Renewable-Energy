@@ -153,8 +153,8 @@
 
   <!-- ChatGPT Help -->
   <div class="stat-bubble">
-    <div>A little help from:</div>
-    <button onclick="revealChatGPT(this)">Reveal</button>
+    <div>Tools Used:</div>
+    <button onclick="revealTools(this)">Reveal</button>
     <div id="chatgpt" class="red-stat"></div>
   </div>
 </div>
@@ -230,16 +230,50 @@ function revealLanguages(btn){
   });
 }
 
-function revealChatGPT(btn){
+function revealTools(btn){
   btn.style.display = 'none';
   const el = document.getElementById("chatgpt");
-  const text = 'ChatGPT (it\'s not cheating — it is called "Vibe Coding")';
-  el.textContent = "";
-  [...text].forEach((char,i)=>{
-    setTimeout(()=>{ 
-      el.textContent += char; 
-      el.classList.add("visible");
-    }, i*20);
+
+  const tools = [
+    {
+      label: "Code Writing Tool - ",
+      name: "One Compiler",
+      link: "https://onecompiler.com"
+    },
+    {
+      label: "Software Compiler - ",
+      name: "GitHub",
+      link: "https://github.com"
+    },
+    {
+      label: "Vibe Coding Tool - ",
+      name: "ChatGPT",
+      link: "https://openai.com/chatgpt"
+    }
+  ];
+
+  el.innerHTML = "";
+  el.classList.add("visible");
+
+  tools.forEach((tool, index) => {
+    const line = document.createElement("div");
+    line.style.opacity = "0";
+    line.style.transition = "opacity 0.8s ease";
+    line.style.marginTop = "8px";
+
+    line.innerHTML = `
+      ${tool.label}
+      <a href="${tool.link}" target="_blank" 
+         style="color:#1565C0; text-decoration:underline; font-weight:500;">
+        ${tool.name}
+      </a>
+    `;
+
+    el.appendChild(line);
+
+    setTimeout(() => {
+      line.style.opacity = "1";
+    }, index * 800);
   });
 }
 
