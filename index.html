@@ -86,6 +86,12 @@ body {
 #D .bubble { background-color: #E1BEE7; }
 #E .bubble { background-color: #BBDEFB; }
 
+#B .bubble,
+#C .bubble {
+  width: fit-content;
+  max-width: 600px;
+}
+
 /* -------- Lists -------- */
 ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 
@@ -135,6 +141,10 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 @media (max-width:768px){
   .content-container{ flex-direction: column; }
   .side-image img{ max-width: 100%; margin-top: 20px; }
+  #B .bubble,
+  #C .bubble {
+    width: 100%;
+  }
 }
 </style>
 </head>
@@ -173,30 +183,46 @@ ul, ol { margin-top: 10px; margin-left: 25px; line-height: 1.6; }
 
 <!-- Section B: Renewable Energy -->
 <div class="content-container" id="B">
-  <div class="lists bubble">
-    <ol type="A" start="2"><li><h3>Renewable Energy</h3></li></ol>
-    <ul>
-      <li>Solar Energy</li>
-      <li>Hydro Energy</li>
-      <li>Ocean Energy</li>
-      <li>Biomass Energy</li>
-      <li>Wind Energy</li>
-      <li>Geothermal Energy</li>
-    </ul>
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+    
+    <div class="lists bubble" style="width:fit-content; max-width:600px;">
+      <ol type="A" start="2"><li><h3>Renewable Energy</h3></li></ol>
+      <ul>
+        <li>Solar Energy</li>
+        <li>Hydro Energy</li>
+        <li>Ocean Energy</li>
+        <li>Biomass Energy</li>
+        <li>Wind Energy</li>
+        <li>Geothermal Energy</li>
+      </ul>
+    </div>
+
+    <div class="side-image">
+      <img src="https://www.priyamstudycentre.com/wp-content/uploads/2020/11/renewable-energy-sources.jpg" alt="Renewable Energy Sources">
+    </div>
+
   </div>
 </div>
 
 <!-- Section C: Non-Renewable Energy -->
 <div class="content-container" id="C">
-  <div class="lists bubble">
-    <ol type="A" start="3"><li><h3>Non-Renewable Energy</h3></li></ol>
-    <ul>
-      <li>Coal</li>
-      <li>Gas</li>
-      <li>Oil</li>
-      <li>CNG / LPG</li>
-      <li>Uranium</li>
-    </ul>
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+    
+    <div class="lists bubble" style="width:fit-content; max-width:600px;">
+      <ol type="A" start="3"><li><h3>Non-Renewable Energy</h3></li></ol>
+      <ul>
+        <li>Coal</li>
+        <li>Gas</li>
+        <li>Oil</li>
+        <li>CNG / LPG</li>
+        <li>Uranium</li>
+      </ul>
+    </div>
+
+    <div class="side-image">
+      <img src="https://polarpedia.eu/wp-content/uploads/2019/05/Nonrenewableenergy.jpg" alt="Non Renewable Energy Sources">
+    </div>
+
   </div>
 </div>
 
